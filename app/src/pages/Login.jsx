@@ -19,7 +19,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setError("")
+        setError("Invio in corso...")
 
         try {
             const response = await axios.post('/login/send-code', { phone: phone })
