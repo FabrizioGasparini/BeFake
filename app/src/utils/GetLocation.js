@@ -3,7 +3,7 @@ async function getAddressFromCoordinates(
   latitude,
   longitude,
 ) {
-  const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=c98bf33bcefaeee390d09b2546e6a7d2`;
+  const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=c98bf33bcefaeee390d09b2546e6a7d2`;
   const defaultResponse = latitude.toFixed(2) + ", " + longitude.toFixed(2);
   
   try {
