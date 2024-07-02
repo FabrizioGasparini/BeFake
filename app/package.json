@@ -16,6 +16,8 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.2",
     "cors-anywhere": "^0.4.4",
+    "happy-headers": "^1.3.0",
+    "http-proxy-middleware": "^3.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-native-dotenv": "^3.4.11",
@@ -26,10 +28,13 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
     "vite": "^5.3.1"
   }
 }

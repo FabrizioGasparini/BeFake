@@ -1,7 +1,7 @@
 import cors_proxy from 'cors-anywhere';
 
 // Imposta l'host e la porta
-const host = '192.168.1.103';
+const host = '0.0.0.0';
 const port = 8080;
 
 // Avvia il server CORS Anywhere
