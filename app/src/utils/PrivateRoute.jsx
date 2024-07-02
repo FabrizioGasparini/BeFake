@@ -31,8 +31,8 @@ const PrivateRoutes = () => {
                     return navigate('/login')    
                 }
 
-                cookies.set("token", newTokens.accessToken)
-                cookies.set("refreshToken", newTokens.refreshToken)
+                cookies.set("token", newTokens.accessToken, {expires: new Date(Date.now() + 2592000)})
+                cookies.set("refreshToken", newTokens.refreshToken, {expires: new Date(Date.now() + 2592000)})
 
                 axios.defaults.headers.common = { 'Authorization': `Bearer ${newTokens.accessToken}` }
             }

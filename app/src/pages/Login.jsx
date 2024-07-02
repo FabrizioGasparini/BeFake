@@ -24,7 +24,7 @@ const Login = () => {
         
         if (sessionInfo == undefined || sessionInfo == null) { setError('Errore durante il login!'); return }
 
-        cookies.set('sessionInfo', sessionInfo)
+        cookies.set('sessionInfo', sessionInfo, {expires: new Date(Date.now()+2592000)})
         return navigate('/login/verify')
     }
 
