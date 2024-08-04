@@ -1,4 +1,7 @@
 import axios from "./axios";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies()
 
 export default async function handler(endpoint, method='get', data=null)
 {
@@ -9,7 +12,8 @@ export default async function handler(endpoint, method='get', data=null)
             "bereal-device-id": "937v3jb942b0h6u9",
             "bereal-timezone": "Europe/Paris",
             "bereal-signature": signature,
-            "bereal-app-version-code": "14549"
+            "bereal-app-version-code": "14549",
+            'Authorization': `Bearer ${cookies.get("token")}`
         }
     }
 

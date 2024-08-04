@@ -1,9 +1,10 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import axios from "../api/axios";
 import { useEffect } from "react";
-import Cookies from "universal-cookie";
+
 import request from '../api/request'
 import { refreshTokens } from "../api/fire/refresh";
+
+import Cookies from "universal-cookie";
 
 const cookies = new Cookies()
 
@@ -11,35 +12,31 @@ const PrivateRoutes = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const checkToken = async () => {
+        const checkToken = async () => {            
             try
             {  
-                const token = cookies.get("token")
-                axios.defaults.headers.common = { 'Authorization': `Bearer ${token}` }
-
-                await request('/person/me', 'get', {'token': token})
+                const response = await request('/person/me', 'get', {'token': cookies.get("token")})
+                cookies.set("userId", response.data.id)
             } 
             catch (error)
             {
                 const newTokens = await refreshTokens()
                 console.log(newTokens)
-
+                
                 if (!newTokens)
                 {
                     console.error('Errore durante la verifica del token:', error);
                     if(error.response.data == "See /corsdemo for more info") window.open('https://cors-anywhere.herokuapp.com/corsdemo', '_blank')
                     return navigate('/login')    
                 }
-
-                cookies.set("token", newTokens.accessToken, {expires: new Date(Date.now() + 2592000)})
-                cookies.set("refreshToken", newTokens.refreshToken, {expires: new Date(Date.now() + 2592000)})
-
-                axios.defaults.headers.common = { 'Authorization': `Bearer ${newTokens.accessToken}` }
+                
+                cookies.set("token", newTokens.accessToken, {expires: new Date(Date.now() * 2)})
+                cookies.set("refreshToken", newTokens.refreshToken, {expires: new Date(Date.now() * 2)})
             }
         }
     
         checkToken()
-    }, [navigate])
+    }, [])
     
     return (
         <Outlet/>

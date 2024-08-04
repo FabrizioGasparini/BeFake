@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { faPhone } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import Cookies from 'universal-cookie';
 import { getSessionInfo } from '../api/fire/login'
+
+import Cookies from 'universal-cookie';
 
 const cookies = new Cookies()
 
@@ -15,7 +16,6 @@ const Login = () => {
 
     const navigate = useNavigate()
 
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         setError("")
@@ -24,7 +24,7 @@ const Login = () => {
         
         if (sessionInfo == undefined || sessionInfo == null) { setError('Errore durante il login!'); return }
 
-        cookies.set('sessionInfo', sessionInfo, {expires: new Date(Date.now()+2592000)})
+        cookies.set('sessionInfo', sessionInfo, {expires: new Date(Date.now() * 2)})
         return navigate('/login/verify')
     }
 
@@ -40,7 +40,7 @@ const Login = () => {
                                 type="tel"
                                 name="phone"
                                 id="phone"
-                                placeholder="(+00) 123-456-7890"
+                                placeholder="+00 123 456 7890"
                                 required
                                 autoComplete="phone"
                                 value={phone}

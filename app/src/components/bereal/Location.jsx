@@ -9,7 +9,6 @@ const Location = (position) => {
         const loadLocation = async () => {
             if(location != null || position.data == null) return
             setLocation(await getAddressFromCoordinates(position.data.latitude, position.data.longitude))
-            console.log(await getAddressFromCoordinates(position.data.latitude, position.data.longitude))
         }
 
         loadLocation()

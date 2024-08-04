@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Cookies from 'universal-cookie';
 
 import { getTokens } from '../api/fire/verify'
-import axios from '../api/axios';
 
 const cookies = new Cookies()
 
@@ -26,8 +25,6 @@ const Login = () => {
 
         cookies.set("token", tokens.accessToken)
         cookies.set("refreshToken", tokens.refreshToken)
-
-        axios.defaults.headers.common = { 'Authorization': `Bearer ${tokens.accessToken}` }
 
         return navigate('/')
     }
