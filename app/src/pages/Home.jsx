@@ -91,7 +91,7 @@ const Home = () => {
                             }
                         </div>
                         <p className="st">I <span className='font-semibold'>BeReal.</span> dei tuoi amici</p>
-                        <div className="friendsPosts flex flex-col-reverse gap-12">
+                        <div className="friendsPosts w-full flex flex-col-reverse gap-12">
                             {
                                 data.friendsPosts.map((friend, index) => (
                                     <>
