@@ -114,7 +114,7 @@ const Upload = () => {
                 <div className="bereal max-w-xl w-full h-fit relative flex flex-col items-center gap-6 py-6 rounded-3xl border-gray-500 border-2 bg-neutral-950 m-5">
                     <div className="images w-5/6 h-fit flex items-center justify-center relative">
                         <div className="primary w-full" onClick={() => {}}>
-                            <img src={primary ? URL.createObjectURL(primary) : placeholder} alt="" className='rounded-3xl border-black border-2 min-w-full min-h-full' onClick={() => setPrimary(null)} />
+                            <img src={primary ? URL.createObjectURL(primary) : "./assets/bereal-placeholder-BWQmqWRy.png"} alt="" className='rounded-3xl border-black border-2 min-w-full min-h-full' onClick={() => setPrimary(null)} />
                             {primary ? "" : <div className="flex items-center justify-center w-full absolute h-full top-0">
                                 <label className="flex flex-col items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-3xl cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -129,7 +129,7 @@ const Upload = () => {
                             </div>} 
                         </div>
                         <div className="secondary w-1/4 absolute top-1 left-1" onClick={() => {}}>
-                            <img src={secondary ? URL.createObjectURL(secondary) : placeholder} alt="" className='rounded-3xl border-black border-2 min-w-full min-h-full' onClick={() => setSecondary(null)}/>
+                            <img src={secondary ? URL.createObjectURL(secondary) : "./assets/bereal-placeholder-BWQmqWRy.png"} alt="" className='rounded-3xl border-black border-2 min-w-full min-h-full' onClick={() => setSecondary(null)}/>
                             {secondary ? "" : <div className="flex items-center justify-center w-full absolute h-full top-0 overflow-hidden">
                                 <label className="p-2 flex flex-col items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-3xl cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
