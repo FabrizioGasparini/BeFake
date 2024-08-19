@@ -48,7 +48,7 @@ const Modal = ({ visible, data, hide, type }) => {
         if (comment == '') return
 
         try {
-            const response = await request(`/content/comments?postId=${data.id}&postUserId=${cookies.get("userId")}`, 'post', { 'content': comment })
+            const response = await request(`/content/comments?postId=${data.id}&postUserId=${data.userId}`, 'post', { 'content': comment })
 
             setCommentsList(commentsList => [...commentsList, response.data]);
             setComment('')

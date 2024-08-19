@@ -4,11 +4,10 @@ import BeReal from '../components/bereal/BeReal'
 import Modal from '../components/Modal'
 
 import request from '../api/request'
-import { refreshTokens } from '../api/fire/refresh'
 
 import { useNavigate } from 'react-router-dom'
 
-import { faSignOut } from '@fortawesome/free-solid-svg-icons'
+import { faSignOut, faUpload } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Cookies from 'universal-cookie'
@@ -22,22 +21,6 @@ const Home = () => {
     const [modalData, setModalData] = useState({"comments": []})
 
     const navigate = useNavigate()
-
-    const refreshToken = async () => {
-        const currentToken = cookies.get("refreshToken")
-        
-        try {
-            const tokens = await refreshTokens(currentToken)
-            if (!tokens) { return; }
-
-            cookies.set("token", tokens.accessToken)
-            cookies.set("refreshToken", tokens.refreshToken)
-
-            getData()
-        } catch (error) {
-            console.error(error)
-        }
-    }
     
     const getData = async () => {
         if (data != null) return
@@ -48,7 +31,6 @@ const Home = () => {
 
             setData(response.data)
         } catch (error) {
-            refreshToken()
             console.error(error)
         }
     }
@@ -74,6 +56,8 @@ const Home = () => {
     return (
         <>
             <div className="logout absolute right-10 top-10 text-5xl cursor-pointer" onClick={() => logout()}><FontAwesomeIcon icon={faSignOut} /></div>
+            <div className="upload absolute left-10 top-10 text-5xl cursor-pointer" onClick={() => navigate('/upload')}><FontAwesomeIcon icon={faUpload} /></div>
+
             <h1 className="hl font-extrabold">BeReal.</h1>
             {
                 data != null ? 

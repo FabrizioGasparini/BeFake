@@ -25,8 +25,6 @@ export const refreshTokens = async (refreshToken) => {
             }
         )
 
-        console.log("Request: ", tokensRequest)
-
         tokens = { accessToken: tokensRequest.data.access_token, refreshToken: tokensRequest.data.refresh_token }
     }
     catch (error)

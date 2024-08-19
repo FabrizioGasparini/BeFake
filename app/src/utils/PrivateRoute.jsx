@@ -20,7 +20,9 @@ const PrivateRoutes = () => {
             } 
             catch (error)
             {
-                const newTokens = await refreshTokens()
+                const currentToken = cookies.get("refreshToken")
+
+                const newTokens = await refreshTokens(currentToken)
                 console.log(newTokens)
                 
                 if (!newTokens)

@@ -3,11 +3,11 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies()
 
-export default async function handler(endpoint, method='get', data=null)
+export default async function handler(endpoint, method='get', data=null, headers=null)
 {
     const signature = await getSignature()
 
-    const options = {
+    const options = headers ? headers : {
         "headers": {
             "bereal-device-id": "937v3jb942b0h6u9",
             "bereal-timezone": "Europe/Paris",

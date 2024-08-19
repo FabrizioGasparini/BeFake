@@ -121,12 +121,12 @@ const BeReal = ({ friend, onClick, own }) => {
                     </div>    
                     {post.caption ? <p className='st overflow-clip text-ellipsis text-center max-w-full'>{post.caption}</p> : ''}
                      
-
+                    <p className='-mt-4 overflow-clip text-ellipsis text-center max-w-full'>{post.retakeCounter ? `${post.retakeCounter} Retakes` : '0 Retakes'}</p>
                     {post.location ? <Location data={post.location} /> : ''}    
                     <div className="bottom flex relative items-center justify-between w-5/6">
                             <button className="realmojis flex items-center justify-center gap-2 text-xs w-12" onClick={() => onClick(true, { "id": post.id, "userId": friend.user.id, "username": friend.user.username}, 'react')}><FontAwesomeIcon icon={faSmile} className='h-5' /></button>
                         <p className="bereal-count w-fit">{count}</p>    
-                        <button className="comments flex items-center justify-center gap-2 text-xs w-12" onClick={() => onClick(true, { "comments": post.comments, "id": post.id }, 'comments')}><FontAwesomeIcon icon={faCommentDots} className='h-5' />({post.comments.length})</button>
+                        <button className="comments flex items-center justify-center gap-2 text-xs w-12" onClick={() => onClick(true, { "comments": post.comments, "id": post.id, "userId": friend.user.id }, 'comments')}><FontAwesomeIcon icon={faCommentDots} className='h-5' />({post.comments.length})</button>
                     </div>
                 </div> : ''
             }
